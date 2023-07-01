@@ -14,11 +14,24 @@ namespace data_structures
     {
         static void Main(string[] args)
         {
-            char[] arr = new char[] { 'A', 'B', 'C' };
-            var linkedList = new SinglyLinkedList<char>(arr);
+            var list = new List<int>() { 1,2,3,4,5};
+            var linkedList = new SinglyLinkedList<int>(list);
             foreach (var item in linkedList)
             {
-                Console.WriteLine(item);
+                Console.Write($"{item,-3}");
+            }
+
+            Console.WriteLine();
+            linkedList.RemoveFirst();
+            foreach (var item in linkedList)
+            {
+                Console.Write($"{item,-3}");
+            }
+            Console.WriteLine();
+            linkedList.RemoveLast();
+            foreach (var item in linkedList)
+            {
+                Console.Write($"{item,-3}");
             }
         }
     }

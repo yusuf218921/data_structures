@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,25 @@ namespace data_structures.LinkedList
                 current = current.Next;
             }
             throw new Exception("There is not this item in the linked list");
+        }
+        public T RemoveFirst()
+        {
+            var current = Head.Next;
+            Head = current;
+            return Head.Value;
+        }
+        public T RemoveLast()
+        {
+            var current = Head;
+            var temp = current;
+            while(current.Next != null)
+            {
+                temp = current;
+                current = current.Next;
+            }
+            temp.Next = null;
+            return current.Value;
+            
         }
 
         public IEnumerator<T> GetEnumerator()
