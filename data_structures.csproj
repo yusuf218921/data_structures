@@ -50,6 +50,7 @@
     <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedList.cs" />
     <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListEnumerator.cs" />
     <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListNode.cs" />
+    <Compile Include="PostFixExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stack\ArrayStack.cs" />
