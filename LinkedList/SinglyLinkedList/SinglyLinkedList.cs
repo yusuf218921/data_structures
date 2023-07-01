@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace data_structures.LinkedList
 {
-    public class SinglyLinkedList<T> : IEnumerable<T>
+    public class SinglyLinkedListQueue<T> : IEnumerable<T>
     {
         public SinglyLinkedListNode<T> Head;
 
-        public SinglyLinkedList()
+        public SinglyLinkedListQueue()
         {
             Head = null;
         }
 
-        public SinglyLinkedList(IEnumerable<T> collection)
+        public SinglyLinkedListQueue(IEnumerable<T> collection)
         {
             foreach (var item in collection)
                 this.AddLast(item);

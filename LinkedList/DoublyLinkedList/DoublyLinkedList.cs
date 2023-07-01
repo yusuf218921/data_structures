@@ -174,5 +174,10 @@ namespace data_structures.LinkedList.DoublyLinkedList
         {
             return GetEnumerator();
         }
+
+        public void Clear()
+        {
+            Head = null;
+        }
     }
 }

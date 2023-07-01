@@ -6,7 +6,7 @@ namespace data_structures.Stack
     public class LinkedListStack<T> : IStack<T>
     {
         public int Count { get; private set; }
-        private readonly SinglyLinkedList<T> linkedList = new SinglyLinkedList<T> ();
+        private readonly SinglyLinkedListQueue<T> linkedList = new SinglyLinkedListQueue<T> ();
 
         public void Clear()
         {

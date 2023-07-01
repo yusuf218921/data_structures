@@ -53,6 +53,9 @@
     <Compile Include="PostFixExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queue\ArrayQueue.cs" />
+    <Compile Include="Queue\LinkedListQueue.cs" />
+    <Compile Include="Queue\Queue.cs" />
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
