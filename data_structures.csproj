@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
-    <Compile Include="LinkedList\SinglyLinkedList.cs" />
-    <Compile Include="LinkedList\SinglyLinkedListEnumerator.cs" />
-    <Compile Include="LinkedList\SinglyLinkedListNode.cs" />
+    <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedList.cs" />
+    <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedListEnumerator.cs" />
+    <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedListNode.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedList.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListEnumerator.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList\SinglyLinkedListNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

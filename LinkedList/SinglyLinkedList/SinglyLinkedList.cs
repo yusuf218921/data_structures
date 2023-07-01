@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace data_structures.LinkedList
 {
-    internal class SinglyLinkedList<T> : IEnumerable<T>
+    public class SinglyLinkedList<T> : IEnumerable<T>
     {
         SinglyLinkedListNode<T> Head;
 

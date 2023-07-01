@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace data_structures.Array
 {
-    internal class Array<T> : IEnumerable<T>, ICloneable
+    public class Array<T> : IEnumerable<T>, ICloneable
     {
         private T[] InnerList { get; set; }
         public int Count { get; private set; }

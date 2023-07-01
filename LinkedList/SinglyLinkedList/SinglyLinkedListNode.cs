@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace data_structures.LinkedList
 {
-    internal class SinglyLinkedListNode<T>
+    public class SinglyLinkedListNode<T>
     {
         public SinglyLinkedListNode<T> Next;
         public T Value;

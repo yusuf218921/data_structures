@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace data_structures.LinkedList
 {
-    internal class SinglyLinkedListEnumerator<T> : IEnumerator<T>
+    public class SinglyLinkedListEnumerator<T> : IEnumerator<T>
     {
         private SinglyLinkedListNode<T> Head;
         private SinglyLinkedListNode<T> _current;
