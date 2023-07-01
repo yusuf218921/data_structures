@@ -10,7 +10,7 @@ namespace data_structures.LinkedList
 {
     public class SinglyLinkedList<T> : IEnumerable<T>
     {
-        SinglyLinkedListNode<T> Head;
+        public SinglyLinkedListNode<T> Head;
 
         public SinglyLinkedList()
         {
@@ -163,6 +163,10 @@ namespace data_structures.LinkedList
             prev.Next = null;
             return current.Value;
             
+        }
+        public void Clear()
+        {
+            Head = null;
         }
 
         public IEnumerator<T> GetEnumerator()
