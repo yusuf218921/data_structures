@@ -59,6 +59,7 @@
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
+    <Compile Include="Tree\BST\BST.cs" />
     <Compile Include="Tree\BST\Node.cs" />
   </ItemGroup>
   <ItemGroup>

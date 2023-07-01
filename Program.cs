@@ -1,5 +1,6 @@
 ﻿using System;
 using data_structures.Queue;
+using data_structures.Tree.BST;
 
 namespace data_structures
 {
@@ -7,31 +8,13 @@ namespace data_structures
     {
         static void Main(string[] args)
         {
-            var numbers = new int[] { 1, 2, 3 };
-            var q1 = new Queue<int>();
-            var q2 = new Queue<int>(QueueType.LinkedList);
+            var tree = new BST<int>(23,16,45,3,22,37,39);
             
-            foreach (var number in numbers)
-            {
-                Console.WriteLine(number);
-                q1.EnQueue(number);
-                q2.EnQueue(number);
-            }
-
-            Console.WriteLine($"q1 Count : {q1.Count}");
-            Console.WriteLine($"q1 Count : {q2.Count}");
-
-            Console.WriteLine($"{q1.DeQueue()} has been removed from q1");
-            Console.WriteLine($"{q2.DeQueue()} has been removed from q2");
-
-            Console.WriteLine($"q1 Count : {q1.Count}");
-            Console.WriteLine($"q1 Count : {q2.Count}");
-
-            Console.WriteLine($"q1 Peek : {q1.Peek()}");
-            Console.WriteLine($"q1 Peek : {q2.Peek()}");
-
-
-
+            tree.PreOrder(tree.Root);
+            Console.WriteLine(new string('-',50));
+            tree.InOrder(tree.Root);
+            Console.WriteLine(new string('-', 50));
+            tree.PostOrder(tree.Root);
             Console.ReadKey();
         }
     }
