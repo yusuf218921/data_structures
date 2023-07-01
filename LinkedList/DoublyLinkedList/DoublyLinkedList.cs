@@ -12,6 +12,15 @@ namespace data_structures.LinkedList.DoublyLinkedList
     {
         public DoublyLinkedListNode<T> Head { get; set; }
         public DoublyLinkedListNode<T> Tail { get; set; }
+        public DoublyLinkedList()
+        {
+            
+        }
+        public DoublyLinkedList(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+                AddLast(item);
+        }
 
         public void AddFirst(T item)
         {
@@ -91,6 +100,69 @@ namespace data_structures.LinkedList.DoublyLinkedList
                 }
                 current = current.Next;
             }
+        }
+        public T RemoveFirst()
+        {
+            if (Head == null)
+                throw new Exception("LinkedList is empty");
+            var value = Head.Value;
+            if (Head==Tail)
+            {
+                Head = null;
+                Tail = null;
+                return value;
+            }
+            Head = Head.Next;
+            Head.Prev = null;
+            return value;
+        }
+        public T RemoveLast()
+        {
+            if (Head == null)
+                throw new Exception("LinkedList is empty");
+            var value = Tail.Value;
+            if (Head == Tail)
+            {
+                Head = null;
+                Tail = null;
+                return value;
+            }
+            Tail = Tail.Prev;
+            Tail.Next = null;
+            return value;
+        }
+        public void Remove(T item)
+        {
+            if(Head.Value.Equals(item))
+                RemoveFirst();
+            else if(Tail.Value.Equals(item))            
+                RemoveLast();
+            else
+            {
+                var current = Head;
+                while(current != null)
+                {
+                    if (current.Value.Equals(item))
+                    {
+                        current.Prev.Next = current.Next;
+                        current.Next.Prev = current.Prev;
+                        return;
+                    }
+                    current = current.Next;
+                }
+                throw new Exception("There is not this item in the linked list"); 
+            }
+        }
+        public int Count()
+        {
+            int count = 0;
+            var current = Head;
+            while (current != null)
+            {
+                current = current.Next;
+                count++;
+            }
+            return count;
         }
 
         public IEnumerator<T> GetEnumerator()

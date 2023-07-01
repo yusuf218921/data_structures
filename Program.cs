@@ -15,41 +15,35 @@ namespace data_structures
     {
         static void Main(string[] args)
         {
-            var list = new DoublyLinkedList<int>();
-            list.AddLast(1);
-            list.AddLast(2);
-            list.AddLast(3);
+            var list = new List<int>() { 1, 2, 3, 4, 5 };
+            var linkedlist = new DoublyLinkedList<int>(list);
+            linkedlist.Remove(3);
+            foreach (var item in linkedlist)
+            {
+                Console.Write($"{item,-4}");
+            }
+            Console.WriteLine();
+            linkedlist.Remove(1);
+            foreach (var item in linkedlist)
+            {
+                Console.Write($"{item,-4}");
+            }
+            Console.WriteLine();
+            linkedlist.Remove(5);
+            foreach (var item in linkedlist)
+            {
+                Console.Write($"{item,-4}");
+            }
+            Console.WriteLine();
+            linkedlist.Remove(4);
+            foreach (var item in linkedlist)
+            {
+                Console.Write($"{item,-4}");
+            }
+            Console.WriteLine();
+            linkedlist.Remove(2);
+            Console.WriteLine(linkedlist.Count());
 
-            foreach (var item in list)
-            {
-                Console.Write($"{item,-3}");
-            }
-
-            list.AddAfter(1, -1);
-            Console.WriteLine();
-            foreach (var item in list)
-            {
-                Console.Write($"{item,-3}");
-            }
-            list.AddAfter(3, -1);
-            Console.WriteLine();
-            foreach (var item in list)
-            {
-                Console.Write($"{item,-3}");
-            }
-            list.AddAfter(2, -2);
-            Console.WriteLine();
-            foreach (var item in list)
-            {
-                Console.Write($"{item,-3}");
-            }
-            list.AddAfter(-1, -10);
-            Console.WriteLine();
-            foreach (var item in list)
-            {
-                Console.Write($"{item,-3}");
-            }
-            Console.WriteLine();
             Console.ReadKey();
         }
     }
