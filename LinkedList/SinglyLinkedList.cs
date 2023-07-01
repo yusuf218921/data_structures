@@ -16,6 +16,12 @@ namespace data_structures.LinkedList
             Head = null;
         }
 
+        public SinglyLinkedList(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+                this.AddLast(item);
+        }
+
         public void AddFirst(T item)
         {
             var newNode = new SinglyLinkedListNode<T>(item);
@@ -122,7 +128,7 @@ namespace data_structures.LinkedList
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new SinglyLinkedListEnumerator<T>(Head);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -14,18 +14,12 @@ namespace data_structures
     {
         static void Main(string[] args)
         {
-            var linkedList = new SinglyLinkedList<int>();
-            linkedList.AddLast(1);
-            linkedList.AddLast(2);
-            linkedList.AddLast(3);
-            linkedList.AddLast(5);
-            linkedList.AddAfter(3, 4);
-            Console.WriteLine(linkedList.Count());
-            linkedList.AddAfter(5, 6);
-            Console.WriteLine(linkedList.Count());
-            linkedList.Remove(3);
-            Console.WriteLine(linkedList.Count());
-            Console.ReadKey();
+            char[] arr = new char[] { 'A', 'B', 'C' };
+            var linkedList = new SinglyLinkedList<char>(arr);
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
