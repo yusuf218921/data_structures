@@ -14,6 +14,8 @@ namespace data_structures
             {
                 stack1.Push(item); 
             }
+            Console.WriteLine("Peek : ");
+            Console.WriteLine("Stack1 : {0}", stack1.Peek());
             var stack1Count = stack1.Count;
             Console.WriteLine($"Stack eleman sayısı -> {stack1.Count}");
             for (int i = 0;i < stack1Count;i++)
@@ -25,6 +27,8 @@ namespace data_structures
             {
                 stack2.Push(item);
             }
+            Console.WriteLine("Peek : ");
+            Console.WriteLine("Stack2 : {0}", stack2.Peek());
             var stack2Count = stack2.Count;
             for (int i = 0; i < stack2Count; i++)
             {

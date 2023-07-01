@@ -24,7 +24,7 @@ namespace data_structures.Stack
         }
 
         public T Pop() { return stack.Pop(); }
-        public T Peak() { return stack.Peak(); }
+        public T Peek() { return stack.Peek(); }
         public void Push(T value) { stack.Push(value); }
         public void Clear() { stack.Clear(); }
     }
@@ -34,7 +34,7 @@ namespace data_structures.Stack
         int Count { get; }
         void Push(T item);
         T Pop();
-        T Peak();
+        T Peek();
         void Clear();
     }
     public enum StackType

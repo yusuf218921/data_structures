@@ -13,7 +13,7 @@ namespace data_structures.Stack
             list.Clear();
         }
 
-        public T Peak()
+        public T Peek()
         {
             if (Count == 0)
                 throw new Exception("There is not item in the stack");

@@ -13,7 +13,7 @@ namespace data_structures.Stack
             linkedList.Clear();
         }
 
-        public T Peak()
+        public T Peek()
         {
             if (Count == 0)
                 throw new Exception("stack is empty");
