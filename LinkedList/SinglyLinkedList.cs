@@ -50,7 +50,7 @@ namespace data_structures.LinkedList
             }
             current.Next = newNode;
         }
-        public void AddBefore(T value, T item)
+        public void AddBefore(T before, T item)
         {
             var newNode = new SinglyLinkedListNode<T>(item);
 
@@ -59,23 +59,31 @@ namespace data_structures.LinkedList
                 Head = newNode;
                 return;
             }
-            var temp = new SinglyLinkedListNode<T>();
+            SinglyLinkedListNode<T> prev = null;
             var current = Head;
             while (current != null)
             {
-                if (current.Value.Equals(value))
+                if (current.Value.Equals(before))
                 {
-                    newNode.Next = current;
-                    temp.Next = newNode;
-                    return;
+                    if (prev == null)
+                    {
+                        AddFirst(item);
+                        return;
+                    }
+                    else
+                    {
+                        newNode.Next = current;
+                        prev.Next = newNode;
+                        return;
+                    }
                 }
-                temp = current;
+                prev = current;
                 current = current.Next;
             }
             throw new Exception("There is not this item in the linked list");
         }
 
-        public void AddAfter(T value, T item)
+        public void AddAfter(T after, T item)
         {
             var newNode = new SinglyLinkedListNode<T>(item);
 
@@ -87,7 +95,7 @@ namespace data_structures.LinkedList
             var current = Head;
             while (current != null)
             {
-                if (current.Value.Equals(value))
+                if (current.Value.Equals(after))
                 {
                     newNode.Next = current.Next;
                     current.Next = newNode;
@@ -110,38 +118,49 @@ namespace data_structures.LinkedList
             return count;
         }
 
-        public T Remove(T item)
+        public void Remove(T item)
         {
-            var temp = new SinglyLinkedListNode<T>();
+            SinglyLinkedListNode<T> prev = null;
             var current = Head;
             while (current != null)
             {
-                if(current.Value.Equals(item))
+                if (current.Value.Equals(item))
                 {
-                    temp.Next = current.Next;
-                    return current.Value;
+                    if(prev == null)
+                    {
+                        RemoveFirst();
+                        return;
+                    }
+                    if (current.Next == null)
+                    {
+                        RemoveLast();
+                        return;
+                    }
+                    prev.Next = current.Next;
+                    return;
                 }
-                temp = current;
+                prev = current;
                 current = current.Next;
             }
             throw new Exception("There is not this item in the linked list");
         }
         public T RemoveFirst()
         {
+            var value = Head.Value;
             var current = Head.Next;
             Head = current;
-            return Head.Value;
+            return value;
         }
         public T RemoveLast()
         {
             var current = Head;
-            var temp = current;
+            SinglyLinkedListNode<T> prev = null;
             while(current.Next != null)
             {
-                temp = current;
+                prev = current;
                 current = current.Next;
             }
-            temp.Next = null;
+            prev.Next = null;
             return current.Value;
             
         }
