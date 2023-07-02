@@ -65,32 +65,62 @@ namespace data_structures.Tree.BST
             }
             
         }
-        public void PreOrder(Node<T> node)
+        public Node<T> FindMin(Node<T> root)
         {
-            if (node == null)
-                return;
-            Console.WriteLine($"{node.Value,-3} - ");
-            PreOrder(node.Left);
-            PreOrder(node.Right);
+            var currentNode = root;
+            while(currentNode.Left != null)
+                currentNode = currentNode.Left;
+            return currentNode;   
+        }
+        public Node<T> FindMax(Node<T> root)
+        {
+            var currentNode = root;
+            while (currentNode.Right != null)
+                currentNode = currentNode.Right;
+            return currentNode;
+        }
+        public Node<T> Find(Node<T> root, T value)
+        {
+            var currentNode = root;
+            if (currentNode == null)
+                throw new ArgumentNullException("NULL");
+            while (currentNode != null)
+            {
+                if (currentNode.Value.Equals(value))
+                {
+                    return currentNode;
+                }
+                else if (currentNode.Value.CompareTo(value) > 0)
+                    currentNode = currentNode.Left;
+                else
+                    currentNode = currentNode.Right;
+            }
+            throw new Exception("Bulunamadı");
+        }
+        public Node<T> Remove(Node<T> root,T key)
+        {
+            if (root == null)
+                return root;
 
-        }
-        public void InOrder(Node<T> node)
-        {
-            if (node == null)
-                return;
-            InOrder(node.Left);
-            Console.WriteLine($"{node.Value,-3} - ");
-            InOrder(node.Right);
+            if (key.CompareTo(root.Value) < 0)
+                root.Left = Remove(root.Left, key);
+            else if (key.CompareTo(root.Value) > 0)
+                root.Right = Remove(root.Right, key);
+            else
+            {
+                if (root.Left == null)
+                    return root.Right;
+                else if (root.Right == null)
+                    return root.Left;
 
+                root.Value = FindMin(root.Right).Value;
+
+                root.Right = Remove(root.Right, root.Value);
+            }
+
+            return root;
         }
-        public void PostOrder(Node<T> node)
-        {
-            if (node == null)
-                return;
-            PostOrder(node.Left);
-            PostOrder(node.Right);
-            Console.WriteLine($"{node.Value,-3} - ");
-        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();

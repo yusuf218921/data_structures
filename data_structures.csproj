@@ -59,14 +59,13 @@
     <Compile Include="Stack\ArrayStack.cs" />
     <Compile Include="Stack\LinkedListStack.cs" />
     <Compile Include="Stack\Stack.cs" />
+    <Compile Include="Tree\BinaryTree\BinaryTree.cs" />
     <Compile Include="Tree\BST\BST.cs" />
-    <Compile Include="Tree\BST\Node.cs" />
+    <Compile Include="Tree\BinaryTree\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tree\BinaryTree\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
