@@ -13,10 +13,10 @@ namespace data_structures
         {
             BinaryTree<int> bt = new BinaryTree<int>();
             var tree = new BST<int>(23,16,45,3,22,37);
-            Console.WriteLine($"Number of Leap : {bt.LeapCount(tree.Root)}");
-            Console.WriteLine($"Number of FullNode : {bt.FullNodeCount(tree.Root)}");
-            Console.WriteLine($"Number of HaflNode : {bt.HalfNodeCount(tree.Root)}");
-            Console.WriteLine(bt.isFullTree(tree.Root));
+            foreach (var item in tree)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

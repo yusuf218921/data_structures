@@ -1,4 +1,5 @@
-﻿using System;
+﻿using data_structures.Tree.BinaryTree;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,12 +124,13 @@ namespace data_structures.Tree.BST
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new BinaryTree<T>().LevelOrderNonRecursiveTraversalWithValue(Root).ToList()
+                .Take(new BinaryTree<T>().LevelOrderNonRecursiveTraversalWithValue(Root).ToList().Count).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }

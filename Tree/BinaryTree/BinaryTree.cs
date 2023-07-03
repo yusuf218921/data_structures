@@ -151,6 +151,23 @@ namespace data_structures.Tree.BinaryTree
             return list;
 
         }
+        public List<T> LevelOrderNonRecursiveTraversalWithValue(Node<T> root)
+        {
+            List<T> list = new List<T>();
+            var q = new Queue.Queue<Node<T>>();
+            q.EnQueue(root);
+            var currentNode = root;
+            while (q.Count != 0)
+            {
+                currentNode = q.Peek();
+                if (currentNode.Left != null)
+                    q.EnQueue(currentNode.Left);
+                if (currentNode.Right != null)
+                    q.EnQueue(currentNode.Right);
+                list.Add(q.DeQueue().Value);
+            }
+            return list;
+        }
         public static int MaxDepth(Node<T> root)
         {
             if(root== null)
@@ -222,7 +239,36 @@ namespace data_structures.Tree.BinaryTree
             return new BinaryTree<T>().InOrder(root)
                 .Where(x => x.Right != null && x.Left != null).ToList().Count;
         }
+        public void PrintPaths(Node<T> root)
+        {
+            var path = new T[256];
+            PrintPaths(root, path, 0);
+        }
 
+        private void PrintPaths(Node<T> root, T[] path, int pathLen)
+        {
+            if (root == null)
+                return;
+            path[pathLen] = root.Value;
+            pathLen++;
+            if(root.Left == null && root.Right == null)
+                PrintArray(path, pathLen);
+            else
+            {
+                PrintPaths(root.Left, path, pathLen);
+                PrintPaths(root.Right, path, pathLen);
+            }
+                
+        }
+
+        private void PrintArray(T[] path, int len)
+        {
+            for(int i =  0; i < len; i++)
+            {
+                Console.Write($"{path[i]} ");
+            }
+            Console.WriteLine();
+        }
 
         public void ListClear() => List.Clear();
     }
