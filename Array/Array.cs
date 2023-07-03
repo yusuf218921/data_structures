@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace data_structures.Array
 {
     public class Array<T> : IEnumerable<T>, ICloneable
+        where T : IComparable
     {
         private T[] InnerList { get; set; }
         public int Count { get; private set; }

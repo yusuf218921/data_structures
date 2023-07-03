@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Array\Array.cs" />
+    <Compile Include="Heap\BHeap.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedList.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedListEnumerator.cs" />
     <Compile Include="LinkedList\DoublyLinkedList\DoublyLinkedListNode.cs" />
