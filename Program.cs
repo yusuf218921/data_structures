@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using data_structures.Queue;
 using data_structures.Tree.BinaryTree;
@@ -10,10 +11,12 @@ namespace data_structures
     {
         static void Main(string[] args)
         {
-            var tree = new BST<int>(23,16,45,2,36,99);
-            var bt = new BinaryTree<int>();
-            tree.Remove(tree.Root,23);
-            bt.LevelOrderNonRecursiveTraversal(tree.Root).ForEach(x => Console.WriteLine(x));   
+            BinaryTree<int> bt = new BinaryTree<int>();
+            var tree = new BST<int>(23,16,45,3,22,37);
+            Console.WriteLine($"Number of Leap : {bt.LeapCount(tree.Root)}");
+            Console.WriteLine($"Number of FullNode : {bt.FullNodeCount(tree.Root)}");
+            Console.WriteLine($"Number of HaflNode : {bt.HalfNodeCount(tree.Root)}");
+            Console.WriteLine(bt.isFullTree(tree.Root));
         }
     }
 }

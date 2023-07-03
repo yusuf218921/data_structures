@@ -9,6 +9,19 @@ namespace data_structures.Tree.BinaryTree
 {
     public class BinaryTree<T> where T : IComparable
     {
+        public Node<T> Root = new Node<T>();
+
+        public BinaryTree(Node<T> root)
+        {
+            Root = root;
+        }
+        public BinaryTree(T value)
+        {
+            Root.Value = value;
+            Root.Right = null;
+            Root.Left = null;
+        }
+
         public List<Node<T>> List { get; private set; }
         public BinaryTree()
         {
@@ -138,7 +151,79 @@ namespace data_structures.Tree.BinaryTree
             return list;
 
         }
-        
+        public static int MaxDepth(Node<T> root)
+        {
+            if(root== null)
+                return 0;
+            int leftDepth = MaxDepth(root.Left);
+            int rightDepth = MaxDepth(root.Right);
+
+            return (leftDepth > rightDepth) ? leftDepth+1 : rightDepth+1;
+        }
+        public Node<T> DeepestNode(Node<T> root)
+        {
+            Node<T> temp = null;
+            if (root == null)
+                throw new Exception("null");
+
+            var q = new Queue.Queue<Node<T>>();
+
+            q.EnQueue(root);
+            while(q.Count > 0)
+            {
+                temp = q.DeQueue();
+                if (temp.Left != null)
+                    q.EnQueue(temp.Left);
+                if(temp.Right != null)
+                    q.EnQueue(temp.Right);
+            }
+            return temp;
+        }
+        public Node<T> DeepestNode()
+        {
+            var list = LevelOrderNonRecursiveTraversal(Root);
+            return list[list.Count - 1];
+        }
+        public int LeapCount(Node<T> root)
+        {
+            int count = 0;
+            if (root == null)
+                return count;
+            var q = new Queue.Queue<Node<T>>();
+            q.EnQueue(root);
+            while (q.Count > 0)
+            {
+                var temp = q.DeQueue();
+                if(temp.Left == null && temp.Right == null)
+                    count++;
+                if (temp.Left != null)
+                    q.EnQueue(temp.Left);
+                if (temp.Right != null)
+                    q.EnQueue(temp.Right);
+            }
+            return count;
+        }
+        public int LeapCountWithList(Node<T> root)
+        {
+            return new BinaryTree<T>().InOrder(root).Where(x => x.Left == null && x.Right == null).ToList().Count;
+        }
+        public bool isFullTree(Node<T> root)
+        {
+            return new BinaryTree<T>().InOrder(root).Where(x => (x.Left == null && x.Right == null) || (x.Left != null && x.Right != null)).ToList().Count== new BinaryTree<T>().InOrder(root).Count;
+        }
+        public int HalfNodeCount(Node<T> root)
+        {
+            return new BinaryTree<T>().InOrder(root)
+                .Where(x => (x.Right == null && x.Left!=null) ||
+                (x.Right != null && x.Left == null)).ToList().Count;
+        }
+        public int FullNodeCount(Node<T> root)
+        {
+            return new BinaryTree<T>().InOrder(root)
+                .Where(x => x.Right != null && x.Left != null).ToList().Count;
+        }
+
+
         public void ListClear() => List.Clear();
     }
 }
